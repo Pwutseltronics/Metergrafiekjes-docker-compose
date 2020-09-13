@@ -1,0 +1,10 @@
+# # config file version
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+  - type: influxdb
+  - default: true
+  - url: http://influxdb:8086
+  - user: $INFLUXDB_USER
+  - database: $INFLUXDB_DB
