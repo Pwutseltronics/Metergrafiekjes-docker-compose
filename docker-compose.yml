@@ -12,6 +12,7 @@ services:
       - ./grafana/datasources/:/etc/grafana/provisioning/datasources/:ro
       - ./grafana/dashboard-providers/:/etc/grafana/provisioning/dashboards/:ro
       - ./grafana/dashboards/:/var/lib/grafana/dashboards/:ro
+      - /opt/pwutseltronics-grafiekjes/grafana:/var/lib/grafana
     environment:
       - INFLUXDB_DB=pwutseltronics
       - INFLUXDB_USER=telegraf
@@ -25,6 +26,8 @@ services:
     environment:
       - INFLUXDB_DB=pwutseltronics
       - INFLUXDB_USER=telegraf
+    volumes:
+     - /opt/pwutseltronics-grafiekjes/influxdb:/var/lib/influxdb
 
   telegraf:
     image: telegraf
