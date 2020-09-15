@@ -148,8 +148,6 @@
           "measurement": "electricity",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT difference(last(\"delivered_high\")) AS \"Hoog tarief\", difference(last(\"delivered_low\")) AS \"Laag tarief\" FROM \"electricity\" WHERE $timeFilter GROUP BY time(1d)",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -761,8 +759,6 @@
           "measurement": "gas",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT difference(last(\"gas_reading\")) FROM \"gas\" WHERE $timeFilter GROUP BY time(1d)",
-          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -906,8 +902,6 @@
           "measurement": "gas",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT difference(last(\"gas_reading\")) FROM \"gas\" WHERE $timeFilter GROUP BY time(1d)",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -944,8 +938,6 @@
           "measurement": "gas",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT SUM(\"value\") FROM (SELECT * FROM \"mqtt_consumer\" WHERE \"topic\" =~ /whiskeygrid\\/energy\\/mains\\/reading\\/delivered\\/(high|low)/ ORDER BY time DESC LIMIT 2) ORDER BY time DESC",
-          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -1094,8 +1086,6 @@
           "measurement": "electricity",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"delivered_high\") FROM \"energy\" WHERE $timeFilter",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1207,8 +1197,6 @@
           "measurement": "electricity",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT SUM(\"value\") FROM (SELECT * FROM \"mqtt_consumer\" WHERE \"topic\" =~ /whiskeygrid\\/energy\\/mains\\/reading\\/delivered\\/(high|low)/ ORDER BY time DESC LIMIT 2) ORDER BY time DESC",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1314,14 +1302,12 @@
       "tableColumn": "",
       "targets": [
         {
-          "alias": "Total consumed",
+          "alias": "Totaal verbruikt",
           "groupBy": [],
           "hide": false,
           "measurement": "gas",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT SUM(\"value\") FROM (SELECT * FROM \"mqtt_consumer\" WHERE \"topic\" =~ /whiskeygrid\\/energy\\/mains\\/reading\\/delivered\\/(high|low)/ ORDER BY time DESC LIMIT 2) ORDER BY time DESC",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1551,14 +1537,12 @@
       "tableColumn": "",
       "targets": [
         {
-          "alias": "Total consumed",
+          "alias": "Totaal verbruikt",
           "groupBy": [],
           "hide": false,
           "measurement": "gas",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT SUM(\"value\") FROM (SELECT * FROM \"mqtt_consumer\" WHERE \"topic\" =~ /whiskeygrid\\/energy\\/mains\\/reading\\/delivered\\/(high|low)/ ORDER BY time DESC LIMIT 2) ORDER BY time DESC",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1669,8 +1653,6 @@
           "measurement": "electricity",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"value\" FROM \"mqtt_consumer\".\"*\" WHERE (\"topic\" = 'whiskeygrid/energy/mains/power/total') AND $timeFilter",
-          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -1702,8 +1684,6 @@
           "measurement": "electricity",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"value\" FROM \"mqtt_consumer\".\"*\" WHERE (\"topic\" = 'whiskeygrid/energy/mains/power/total') AND $timeFilter",
-          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1735,8 +1715,6 @@
           "measurement": "electricity",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"value\" FROM \"mqtt_consumer\".\"*\" WHERE (\"topic\" = 'whiskeygrid/energy/mains/power/total') AND $timeFilter",
-          "rawQuery": false,
           "refId": "C",
           "resultFormat": "time_series",
           "select": [
@@ -2430,7 +2408,7 @@
     ]
   },
   "timezone": "",
-  "title": "Energy LT",
+  "title": "Energie lange-termijn",
   "uid": "54k2T7uZz",
   "version": 35
 }
