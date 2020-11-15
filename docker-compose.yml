@@ -6,8 +6,10 @@ services:
     restart: always
     ports:
       - 3000:3000
+    depends_on:
+      - influxdb
     links:
-      - "influxdb"
+      - influxdb
     environment:
       - INFLUXDB_DB=pwutseltronics
       - INFLUXDB_USER=telegraf
@@ -33,9 +35,12 @@ services:
     image: telegraf
     container_name: telegraf
     restart: always
+    depends_on:
+      - influxdb
+      - mosquitto
     links:
-      - "influxdb"
-      - "mosquitto"
+      - influxdb
+      - mosquitto
     volumes:
      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
 
